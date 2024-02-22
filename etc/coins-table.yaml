@@ -20,16 +20,16 @@ invite_payment_gift_rate: 0.05
 free_models:
   - model: gpt-3.5-turbo
     name: GPT 3.5 Turbo
-    free_count: 5
+    free_count: 0
     non_cn: true
 
   - model: model_ernie_bot_turbo
     name: 文心一言 Turbo
-    free_count: 5
+    free_count: 0
     
   - model: generalv2
     name: 讯飞星火 v2
-    free_count: 5
+    free_count: 0
 
 # 在线充值产品列表，这里为空时，将使用 internal/coins/ 中的 products 数据
 # 字段说明：
@@ -40,18 +40,30 @@ free_models:
 #   - expire_policy: 有效期，可选值为 never, week, 2week, month, 3month, 6month, year
 #   - recommend: 是否推荐，推荐的产品会在充值页面显示 Best Deal 标识
 products:
-  - id: cc.aicode.aidea.coins_600_2
-    name: 6元700个
-    quota: 700
-    retail_price: 600
+  - id: ai.tiaotiaofish.coins_58_5k
+    name: 58元5000个
+    quota: 5000
+    retail_price: 5800
     expire_policy: month
 
-  - id: cc.aicode.aidea.coins_3800
-    name: 38元5000个
-    quota: 5000
-    retail_price: 3800
+  - id: ai.tiaotiaofish.coins_88_1w
+    name: 88元10000个
+    quota: 10000
+    retail_price: 8800
     expire_policy: 3month
     recommend: true
+  
+  - id: ai.tiaotiaofish.coins_128_2w
+    name: 128元20000个
+    quota: 20000
+    retail_price: 12800
+    expire_policy: 6month
+
+  - id: ai.tiaotiaofish.coins_188_5w
+    name: 188元50000个
+    quota: 50000
+    retail_price: 18800
+    expire_policy: 12month
 
 # 所有模型的使用价格表，单位为智慧果
 # 该文件中的配置会覆盖 internal/coins/price.go 中的 coinTables 数据，两者数据会取并集

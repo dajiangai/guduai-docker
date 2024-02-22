@@ -17,7 +17,7 @@ enable-migrate: true
 
 # 是否启用 Websocket 支持
 # 启用后，当客户端版本 >= 1.0.7 时，聊天协议使用 Websocket 代替 OpenAI 兼容的 SSE 协议
-enable-websocket: true
+enable-websocket: false
 
 # 是否在日志中输出 SQL 语句
 debug-with-sql: false
@@ -59,7 +59,7 @@ queue-workers: 10
 enable-scheduler: true
 
 # 支持的短信通道，支持 aliyun, tencent，配置多个则随机选择
-sms-channels: [ "aliyun", "tencent" ]
+sms-channels: [ "aliyun"]
 
 ######## OpenAI 配置 ########
 
@@ -71,9 +71,9 @@ openai-autoproxy: false
 # OpenAI 服务配置
 openai-organization: ""
 # OpenAI 服务地址，可以配置多个，用于负载均衡
-openai-servers: [ "https://api.openai.com/v1" ]
+openai-servers: [ "https://api.openai-proxy.com/v1" ]
 # OpenAI API Key，可以配置多个，用于负载均衡
-openai-keys: [ "sk-xxxxxxxxxxxxxxxx" ]
+openai-keys: [ "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" ]
 
 # Azure OpenAI 服务配置
 #openai-azure: true
@@ -263,12 +263,19 @@ translate-appkey: ""
 
 # 用于提供图片存储服务，图片上传、图片下载、缩略图生成等
 
-storage-appkey: ""
-storage-secret: ""
-storage-bucket: "aicode"
-storage-callback: "https://ai-api.example.com/v1/callback/storage/qiniu"
+storage-appkey: "eJxVuk4_wbE5MVWkZ1Us-PXiuWR7kTOLsEgqaWHt"
+storage-secret: "gIB8qaDcNiZf85X-qPQsYrgthorhYlQ32gtRjS4b"
+storage-bucket: "guduai"
+storage-callback: "http://qiniu.guduai.top:8020/v1/callback/storage/qiniu"
 # 七牛云存储资源访问域名（也可以用 CDN 域名），例如 https://cdn.example.com
-storage-domain: https://cdn.example.com
+storage-domain: http://tiaotiaofish.com:8020
+
+#storage-appkey: ""
+#storage-secret: ""
+#storage-bucket: "aicode"
+#storage-callback: "https://ai-api.example.com/v1/callback/storage/qiniu"
+# 七牛云存储资源访问域名（也可以用 CDN 域名），例如 https://cdn.example.com
+#storage-domain: https://cdn.example.com
 
 # 七牛云存储区域，可选值：
 # 华东 - z0
@@ -328,33 +335,33 @@ enable-tencentai: false
 
 # 阿里云服务配置，提供短信验证码、内容安全服务（用于用户输入信息是否合规）
 
-aliyun-key: ""
-aliyun-secret: ""
+aliyun-key: "LTAI5tEwmqyg1vebnBvitK8n"
+aliyun-secret: "zcv1A4sPUNbJVbYzJ0FVVZmr17cEK6"
 
 # 是否启用内容安全检测（提示语敏感内容检测）
 enable-contentdetect: false
 
 # 短信配置
 # 短信验证码模板 ID
-aliyun-smstemplateid: "SMS_279000000"
-aliyun-smssign: "AIdea"
+aliyun-smstemplateid: "SMS_290845040"
+aliyun-smssign: "南昌市三只跳跳鱼网络科技"
 
 ######## 支付宝配置 ########
 
 # 支付宝配置，用于支持 Android 端的支付宝支付
 
-alipay-appid: ""
+alipay-appid: "2021004135678168"
 # APP 私钥文件路径
-alipay-app-private-key: ""
+alipay-app-private-key: /data/alipay/alipay-app-private-key.txt
 # APP 公钥文件路径
-alipay-app-public-key: ""
+alipay-app-public-key: /data/alipay/appCertPublicKey_2021004135678168.crt
 # 支付宝根证书文件路径
-alipay-root-cert: ""
+alipay-root-cert: /data/alipay/alipayRootCert.crt
 # 支付宝公钥文件路径
-alipay-public-key: ""
+alipay-public-key: /data/alipay/alipayCertPublicKey_RSA2.crt
 # 支付宝通知地址
-alipay-notify-url: https://your_domain/v1/payment/callback/alipay-notify
-alipay-return-url: https://your_domain/public/payment/alipay-return
+alipay-notify-url: http://ai.tiaotiaofish.com:8020/v1/payment/callback/alipay-notify
+alipay-return-url: http://ai.tiaotiaofish.com:8020/public/payment/alipay-return
 # 支付宝沙盒模式
 #alipay-sandbox: true
 
@@ -367,7 +374,7 @@ dingding-secret: ""
 ######## 支付配置 ########
 
 # 启用支付宝支付功能
-enable-alipay: false
+enable-alipay: true
 # 启用 Apple 应用内支付功能
 enable-applepay: false
 
